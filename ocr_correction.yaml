@@ -1,0 +1,28 @@
+# toy_en_de.yaml
+
+## Where the samples will be written
+save_data: /content/drive/MyDrive/ir_project/ocr_corr
+## Where the vocab(s) will be written
+src_vocab: ./ocr_corr.vocab.src
+tgt_vocab: ./ocr_corr.vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: False
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: /content/drive/MyDrive/ir_project/splits/train-source.txt
+        path_tgt: /content/drive/MyDrive/ir_project/splits/train-target.txt
+    valid:
+        path_src: /content/drive/MyDrive/ir_project/splits/eval-source.txt
+        path_tgt: /content/drive/MyDrive/ir_project/splits/eval-target.txt
+
+
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+# Where to save the checkpoints
+save_model: /content/drive/MyDrive/ir_project/splits/model
+valid_steps: 100000
+encoder_type: brnn
